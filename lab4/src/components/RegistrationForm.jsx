@@ -80,15 +80,64 @@ const RegistrationForm = () => {
         <div style={{padding: '20px', maxWidth: '400px', margin: 'auto', }}>
             <h2>Registration Form</h2>
             <form onSubmit={handleSubmit} noValidate>
+
+                {/*Поле для имени */}
                 <div style={{marginBottom: '15px'}}>
                     <label htmlFor="name">Name:</label>
-                    <input>
+                    <input
+                        type='text'
+                        id='name'
+                        placeholder='Enter your name'
+                        value={name}
+                        onChange={handleNameChange}
+                    />
+                    {nameError && <p style={{color: 'red', fontSize: '14px', margin: '4px 0' }}>{nameError}</p>}
 
-                    </input>
+                </div>
+
+                {/*Поле для email */}
+                <div style={{marginBottom: '15px'}}>
+                    <label htmlFor='email'>Email:</label>
+                    <input
+                        type='email'
+                        id='email'
+                        placeholder='Enter your email'
+                        value={email}
+                        onChange = {handleEmailChange}
+
+                    />
+
+                    {emailError && <p style={{color: 'red', fontSize: '14px', margin: '4px 0'}}>{emailError}</p>}
+
+                </div> 
+
+                {/*Поле для возраста */}
+                <div style={{marginBottom: '15px'}}>
+                    <label htmlFor='age'>Age:</label>
+                    <input
+                        type='number'
+                        id='age'
+                        placeholder="18"
+                        value={age}
+                        onChange={handleAgeChange}
+                    />
+
+                    {ageError && <p style={{color: 'red', fontSize: '14px', margin: '4px 0'}}>{ageError}</p>}
+
+                </div>
+
+
+                {/*Кнопка для отправки формы */}
+                <button type='submit'>Register</button>
+
+            </form>
+
+            {/*Success message */}
+            {success && <p style={{color: 'green', marginTop: '15px'}}>Registration successful!</p>}
 
         </div>    
     );
-}
+};
 
 
 
